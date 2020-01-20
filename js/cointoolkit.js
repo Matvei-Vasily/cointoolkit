@@ -2424,6 +2424,13 @@ $(document).ready(function() {
 		providers[$("#coinSelector").val()].broadcast[host](this);
 	});
 
+	/* redeem for trim user's input */
+	$("#redeemFrom").focusout(function(){
+		var wif = $("#redeemFrom").val();
+		wif = wif.replace(/\s/g, "");
+		$("#redeemFrom").val(wif);
+	});
+
 	/* redeem from button code */
 	$("#redeemFromBtn").click(function(){
 		var redeem = redeemingFrom($("#redeemFrom").val());
